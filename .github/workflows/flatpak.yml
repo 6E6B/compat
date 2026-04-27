@@ -1,13 +1,6 @@
 name: Flatpak
 
 on:
-  pull_request:
-  push:
-    branches:
-      - main
-      - master
-    tags:
-      - "v*"
   workflow_dispatch:
 
 jobs:

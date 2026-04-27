@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+from collections.abc import Callable
 from gettext import gettext as _
 
 import gi
@@ -20,14 +21,22 @@ from ..services.image_loader import (
 from .game_details_dialog import GameDetailsDialog
 
 
-class GameCard(Gtk.Button):
-    def __init__(self, parent_window: Gtk.Window, summary: GameSummary) -> None:
+class GameCard(Gtk.Overlay):
+    def __init__(
+        self,
+        parent_window: Gtk.Window,
+        summary: GameSummary,
+        is_saved: bool = False,
+        saved_changed: Callable[[GameSummary, bool], None] | None = None,
+    ) -> None:
         super().__init__()
 
         self.parent_window = parent_window
+        self.summary = summary
         self.app_id = summary.app_id
         self.game_name = summary.name
         self.tier = summary.tier
+        self._saved_changed = saved_changed
 
         self.add_css_class("card")
         self.add_css_class("game-card")
@@ -35,6 +44,12 @@ class GameCard(Gtk.Button):
         self.set_valign(Gtk.Align.START)
         self.set_size_request(CARD_W, -1)
         self.set_tooltip_text(f"{summary.name} — {normalize_tier(summary.tier)}")
+
+        button = Gtk.Button()
+        button.add_css_class("flat")
+        button.add_css_class("game-card-button")
+        button.set_size_request(CARD_W, -1)
+        button.set_can_focus(True)
 
         content = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=0)
         content.set_size_request(CARD_W, -1)
@@ -135,8 +150,24 @@ class GameCard(Gtk.Button):
         content.append(self.cover_stack)
         content.append(body)
 
-        self.set_child(content)
-        self.connect("clicked", self._on_clicked)
+        button.set_child(content)
+        button.connect("clicked", self._on_clicked)
+        self.set_child(button)
+
+        self.saved_button = Gtk.ToggleButton()
+        self.saved_button.add_css_class("flat")
+        self.saved_button.add_css_class("circular")
+        self.saved_button.add_css_class("favorite-button")
+        self.saved_button.set_icon_name("non-starred-symbolic")
+        self.saved_button.set_tooltip_text(_("Save game"))
+        self.saved_button.set_halign(Gtk.Align.END)
+        self.saved_button.set_valign(Gtk.Align.START)
+        self.saved_button.set_margin_top(8)
+        self.saved_button.set_margin_end(8)
+        self.saved_button.set_active(is_saved)
+        self.saved_button.connect("toggled", self._on_saved_toggled)
+        self.add_overlay(self.saved_button)
+        self._sync_saved_button()
 
         if summary.app_id:
             start_daemon_thread(
@@ -164,6 +195,19 @@ class GameCard(Gtk.Button):
         reports_pill.append(reports_icon)
         reports_pill.append(reports_label)
         return reports_pill
+
+    def _sync_saved_button(self) -> None:
+        if self.saved_button.get_active():
+            self.saved_button.set_icon_name("starred-symbolic")
+            self.saved_button.set_tooltip_text(_("Remove from saved games"))
+        else:
+            self.saved_button.set_icon_name("non-starred-symbolic")
+            self.saved_button.set_tooltip_text(_("Save game"))
+
+    def _on_saved_toggled(self, button: Gtk.ToggleButton) -> None:
+        self._sync_saved_button()
+        if self._saved_changed is not None:
+            self._saved_changed(self.summary, button.get_active())
 
     def _on_clicked(self, _button: Gtk.Button) -> None:
         dialog = GameDetailsDialog(

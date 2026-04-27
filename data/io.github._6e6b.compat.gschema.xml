@@ -16,5 +16,15 @@
 			<summary>Window maximized state</summary>
 			<description>Whether the main window was maximized when it was last closed.</description>
 		</key>
+		<key name="recent-searches" type="as">
+			<default>[]</default>
+			<summary>Recent searches</summary>
+			<description>Steam game search terms used recently.</description>
+		</key>
+		<key name="saved-games" type="as">
+			<default>[]</default>
+			<summary>Saved games</summary>
+			<description>Serialized game summaries saved by the user.</description>
+		</key>
 	</schema>
 </schemalist>

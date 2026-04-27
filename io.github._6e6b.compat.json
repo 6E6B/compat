@@ -1,7 +1,7 @@
 {
     "id" : "io.github._6e6b.compat",
     "runtime" : "org.gnome.Platform",
-    "runtime-version" : "48",
+    "runtime-version" : "50",
     "sdk" : "org.gnome.Sdk",
     "command" : "compat",
     "finish-args" : [

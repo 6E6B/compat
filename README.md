@@ -2,6 +2,8 @@
 
 Compat is a GTK 4 and libadwaita desktop app for searching Steam games and checking their ProtonDB compatibility from a native Linux interface.
 
+![Compat search results](data/screenshots/results.png)
+
 ## Features
 
 - Search the Steam catalog.

@@ -21,6 +21,7 @@ def html_to_text(value: str | None) -> str:
     text = re.sub(r"<h[1-6][^>]*>", "", text, flags=re.IGNORECASE)
     text = re.sub(r"<[^>]+>", "", text)
     text = html.unescape(text)
+    text = text.replace("\xa0", " ")
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()
 

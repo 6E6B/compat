@@ -1,0 +1,35 @@
+# Build output
+build/
+build-*/
+build-flatpak/
+_build/
+meson-logs/
+meson-private/
+
+# Flatpak output and local repositories
+.flatpak-builder/
+repo/
+*.flatpak
+*.flatpakref
+*.flatpakrepo
+
+# Python cache and local environments
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local editor, OS, and Codex state
+.codex
+.DS_Store
+Thumbs.db
+*~
+*.swp
+*.swo

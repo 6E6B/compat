@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist gettext-domain="compat">
+	<schema id="io.github._6e6b.compat" path="/io/github/_6e6b/compat/">
+		<key name="window-width" type="i">
+			<default>1200</default>
+			<summary>Window width</summary>
+			<description>The last saved width of the main window.</description>
+		</key>
+		<key name="window-height" type="i">
+			<default>760</default>
+			<summary>Window height</summary>
+			<description>The last saved height of the main window.</description>
+		</key>
+		<key name="window-maximized" type="b">
+			<default>false</default>
+			<summary>Window maximized state</summary>
+			<description>Whether the main window was maximized when it was last closed.</description>
+		</key>
+	</schema>
+</schemalist>

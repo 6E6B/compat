@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github._6e6b.compat</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>MIT</project_license>
+
+  <name>Compat</name>
+  <summary>Check Steam game compatibility</summary>
+  <description>
+    <p>Compat helps you quickly search the Steam catalog and review ProtonDB compatibility tiers before installing a game.</p>
+    <p>The app combines Steam store metadata with ProtonDB summaries so you can compare titles, inspect store details, and verify Linux and Steam Deck readiness from one place.</p>
+  </description>
+
+  <developer id="io.github._6e6b">
+    <name>6E6B</name>
+  </developer>
+
+  <url type="homepage">https://github.com/6e6b/compat</url>
+  <url type="bugtracker">https://github.com/6e6b/compat/issues</url>
+  <url type="vcs-browser">https://github.com/6e6b/compat</url>
+
+  <categories>
+    <category>Game</category>
+  </categories>
+
+  <icon type="stock">io.github._6e6b.compat</icon>
+  <translation type="gettext">compat</translation>
+  <launchable type="desktop-id">io.github._6e6b.compat.desktop</launchable>
+  <content_rating type="oars-1.1" />
+
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/6e6b/compat/main/data/screenshots/results.png</image>
+      <caption>Browse Steam games with ProtonDB compatibility results</caption>
+    </screenshot>
+  </screenshots>
+
+  <branding>
+    <color type="primary" scheme_preference="light">#62a0ea</color>
+    <color type="primary" scheme_preference="dark">#1c4f8a</color>
+  </branding>
+
+  <releases>
+    <release version="0.1.0" date="2026-03-07">
+      <description>
+        <p>Initial public release of Compat.</p>
+        <ul>
+          <li>Improved search reliability and error handling.</li>
+          <li>Added detailed game pages, keyboard shortcuts, and persistent window state.</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+
+</component>

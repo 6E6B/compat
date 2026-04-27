@@ -1,0 +1,13 @@
+# List of source files containing translatable strings.
+# Please keep this file sorted alphabetically.
+data/io.github._6e6b.compat.desktop.in
+data/io.github._6e6b.compat.gschema.xml
+data/io.github._6e6b.compat.metainfo.xml.in
+src/core/formatters.py
+src/main.py
+src/services/steam_service.py
+src/shortcuts-dialog.ui
+src/ui/game_card.py
+src/ui/game_details_dialog.py
+src/ui/window.py
+src/window.ui

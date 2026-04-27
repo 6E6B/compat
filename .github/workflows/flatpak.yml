@@ -1,0 +1,37 @@
+name: Flatpak
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+jobs:
+  flatpak:
+    name: Build Flatpak
+    runs-on: ubuntu-latest
+    container:
+      image: bilelmoussaoui/flatpak-github-actions:gnome-48
+      options: --privileged
+
+    steps:
+      - name: Check out sources
+        uses: actions/checkout@v4
+
+      - name: Build bundle
+        uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: Compat.flatpak
+          manifest-path: io.github._6e6b.compat.json
+          cache-key: flatpak-builder-${{ github.ref_name }}
+
+      - name: Upload bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: Compat.flatpak
+          path: Compat.flatpak
+          if-no-files-found: error

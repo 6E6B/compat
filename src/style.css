@@ -1,0 +1,123 @@
+flowboxchild.game-flow-child,
+flowboxchild.game-flow-child:hover,
+flowboxchild.game-flow-child:active,
+flowboxchild.game-flow-child:selected,
+flowboxchild.game-flow-child:focus {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  outline: none;
+}
+
+.game-card {
+  padding: 0;
+  border-radius: 8px;
+}
+
+.game-card:hover {
+  background: alpha(currentColor, 0.04);
+}
+
+.game-card:focus-visible {
+  outline: 2px solid alpha(currentColor, 0.18);
+  outline-offset: 2px;
+}
+
+.game-cover,
+.detail-hero {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.detail-block {
+  border-radius: 8px;
+  padding: 12px;
+  background: alpha(currentColor, 0.04);
+}
+
+/* -- Card pills -- */
+.card-pill {
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  min-height: 0;
+  background: alpha(currentColor, 0.08);
+}
+
+.price-pill {
+  color: inherit;
+}
+
+.price-pill.free {
+  color: #ffffff;
+  background: #26a269;
+}
+
+.reports-pill {
+  padding: 2px 7px;
+}
+
+.reports-pill-icon {
+  opacity: 0.9;
+}
+
+.reports-pill-label {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.game-cover-placeholder {
+  background: alpha(currentColor, 0.05);
+  color: alpha(currentColor, 0.45);
+  min-width: 460px;
+  min-height: 215px;
+}
+
+.game-cover-placeholder-icon {
+  opacity: 0.75;
+}
+
+.proton-badge {
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-weight: 600;
+  background: alpha(currentColor, 0.08);
+}
+
+.proton-badge.borked {
+  color: #ffffff;
+  background: #c01c28;
+}
+
+.proton-badge.bronze {
+  color: #ffffff;
+  background: #9a6b32;
+}
+
+.proton-badge.silver {
+  color: #1c1c1c;
+  background: #c0c0c0;
+}
+
+.proton-badge.gold {
+  color: #1c1c1c;
+  background: #e5c14f;
+}
+
+.proton-badge.platinum {
+  color: #ffffff;
+  background: #3584e4;
+}
+
+.proton-badge.native {
+  color: #ffffff;
+  background: #26a269;
+}
+
+.proton-badge.pending,
+.proton-badge.unknown {
+  color: inherit;
+  background: alpha(currentColor, 0.12);
+}

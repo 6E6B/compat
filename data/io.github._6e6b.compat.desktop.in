@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Compat
+Comment=Check Steam game compatibility
+Exec=compat
+Icon=io.github._6e6b.compat
+Terminal=false
+Type=Application
+Categories=Game;
+Keywords=steam;proton;linux;compatibility;deck;
+StartupNotify=true
+DBusActivatable=true

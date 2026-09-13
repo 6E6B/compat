@@ -30,7 +30,7 @@
 
   <screenshots>
     <screenshot type="default">
-      <image>https://raw.githubusercontent.com/6E6B/compat/master/data/screenshots/results.png</image>
+      <image>https://raw.githubusercontent.com/6E6B/compat/main/data/screenshots/results.png</image>
       <caption>Browse Steam games with ProtonDB compatibility results</caption>
     </screenshot>
   </screenshots>
@@ -45,8 +45,9 @@
       <description>
         <p>Initial public release of Compat.</p>
         <ul>
-          <li>Improved search reliability and error handling.</li>
-          <li>Added detailed game pages, keyboard shortcuts, and persistent window state.</li>
+          <li>Search Steam and show ProtonDB compatibility tiers.</li>
+          <li>Detailed game pages, keyboard shortcuts, and persistent window state.</li>
+          <li>Recent searches and saved games.</li>
         </ul>
       </description>
     </release>

@@ -60,7 +60,17 @@ flatpak-builder --user --install --force-clean build-flatpak io.github._6e6b.com
 flatpak run io.github._6e6b.compat
 ```
 
-A manual GitHub Actions workflow can also produce a `.flatpak` artifact (`Actions` → `Flatpak` → `Run workflow`).
+Tagged releases attach `Compat.flatpak` for download.
+
+```bash
+# Needs Flathub + the GNOME 50 runtime
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.gnome.Platform//50
+flatpak install --user Compat.flatpak
+flatpak run io.github._6e6b.compat
+```
+
+Manual rebuild: Actions → Flatpak → Run workflow.
 
 ## Development
 

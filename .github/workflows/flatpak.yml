@@ -2,6 +2,12 @@ name: Flatpak
 
 on:
   workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
 
 jobs:
   flatpak:
@@ -22,9 +28,17 @@ jobs:
           manifest-path: io.github._6e6b.compat.json
           cache-key: flatpak-builder-${{ github.ref_name }}
 
-      - name: Upload bundle
+      - name: Upload workflow artifact
         uses: actions/upload-artifact@v4
         with:
           name: Compat.flatpak
           path: Compat.flatpak
           if-no-files-found: error
+
+      - name: Publish GitHub Release
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: Compat.flatpak
+          generate_release_notes: true
+          fail_on_unmatched_files: true
